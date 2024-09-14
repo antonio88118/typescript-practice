@@ -1,0 +1,1 @@
+(()=>{"use strict";var o={name:"andy",age:(10,18)};console.log(579),console.log("hi"),console.log(o)})();
