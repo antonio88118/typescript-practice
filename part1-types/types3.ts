@@ -6,6 +6,7 @@
 // let i: 1 | 2 | 3 | 4;
 // let j: 1 | 2 | 3 | 4;
 type myType = 1 | 2 | 3 | 4;
+// i 跟 j 可以是 myType 中的任一值
 let i : myType = 1;
 let j: myType;
 

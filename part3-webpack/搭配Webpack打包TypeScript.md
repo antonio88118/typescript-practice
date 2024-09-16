@@ -26,9 +26,11 @@ pnpm add -D html-webpack-plugin
 
 
 ## webpack.config.js 常用設定選項
+>提醒：接下來用到的 webpack 跟 babel 設定都只是跟著課程做，官方都有提供設定模板，未必要參考本專案的做法。
+
 [官方文件（中文）](https://webpack.docschina.org/concepts/)
 - **mode** - 可選 production 或 development，預設 production
-- **watch** - 設定 true 可以自動偵測檔案變化，無需重開測試環境，預設 false
+- **watch** - 設定 true 可以**自動偵測檔案變化，無需重開測試環境**，預設 false
 - **entry** - 入口檔案
 - **output** - 打包輸出設定
   - **path** - 輸出的目標目錄

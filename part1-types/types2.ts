@@ -24,7 +24,7 @@ object2 = { name: "andy", age: 11 };
 // 表示任意屬性：[propName: string]: any;
 // [propName: string] 表示任意屬性名，propName 可以自由命名，string 則是因為物件的屬性名都是字串
 // any 表示屬性值為任意值
-// 以下寫法，name 後可任意增加屬性
+// 以下寫法，可在 name 屬性後任意增加屬性
 let object3: {
   name: string;
   [propName: string]: any;
