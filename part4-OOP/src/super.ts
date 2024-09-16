@@ -3,8 +3,10 @@
 (function () {
   class Animal {
     name: string;
-    constructor(name: string) {
+    gender: string;
+    constructor(name: string, gender: string) {
       this.name = name;
+      this.gender = gender;
     }
 
     say(): void {
@@ -17,8 +19,8 @@
     // 用法 1：調用父類別構造函式 super()
     // 如同在子類別寫同名方法覆寫父類別，新增 constructor 也一樣
     // 所以子類別新增屬性時，需要用 super() 調用父類別的構造函式，這也是 super 最常使用的場合
-    constructor(name: string, age: number) {
-      super(name);
+    constructor(name: string, gender: string, age: number) {
+      super(name, gender);
       this.age = age;
     }
 
@@ -29,7 +31,7 @@
     }
   }
 
-  const dog = new Dog("lucky", 3);
+  const dog = new Dog("lucky", "male", 3);
   dog.say();
   console.log(dog);
 })();

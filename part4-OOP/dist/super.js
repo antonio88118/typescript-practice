@@ -2,8 +2,9 @@
 // 父類別的別名叫「超類（super class）」
 (function () {
     class Animal {
-        constructor(name) {
+        constructor(name, gender) {
             this.name = name;
+            this.gender = gender;
         }
         say() {
             console.log("say");
@@ -13,8 +14,8 @@
         // 用法 1：調用父類別構造函式 super()
         // 如同在子類別寫同名方法覆寫父類別，新增 constructor 也一樣
         // 所以子類別新增屬性時，需要用 super() 調用父類別的構造函式，這也是 super 最常使用的場合
-        constructor(name, age) {
-            super(name);
+        constructor(name, gender, age) {
+            super(name, gender);
             this.age = age;
         }
         say() {
@@ -23,7 +24,7 @@
             super.say();
         }
     }
-    const dog = new Dog("lucky", 3);
+    const dog = new Dog("lucky", "male", 3);
     dog.say();
     console.log(dog);
 })();
