@@ -1,5 +1,7 @@
 # 物件導向程式設計 OOP
->以下概念比較抽象，先看完程式範例再回來可能更好理解。
+
+> 本章包含的概念比較抽象，剛學也可能不清楚它們的使用時機，但不用著急，大致學習過基本用法之後，在下一章跟著寫整合實作可能更好理解。
+
 ## 何謂物件導向？
 
 **物件導向程式設計（Object-Oriented Programming, OOP）** 是一種程式設計典範，以「物件組成系統」的思維組織程式，主要目的是模擬現實世界的事物，將程式碼設計得更具結構性和可重複使用性，如同我們在現實世界設計各種零件，最後組裝成一部機器。
@@ -38,4 +40,5 @@ JavaScript 雖是 OO 語言，卻缺少很多如：C++、Java 等同類語言擁
 - 繼承-2 父類別 super class
 - 繼承-3 抽象類別 abstract class
 - 繼承-4 介面 interface
-- 封裝 encapsulation
+- 封裝 encapsulation（public、private & protected）
+- 泛型 generics
