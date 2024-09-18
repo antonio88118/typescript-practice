@@ -41,6 +41,24 @@ export default {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  ["postcss-preset-env", { browsers: "last 2 versions" }],
+                ],
+              },
+            },
+          },
+          "sass-loader",
+        ],
+      },
     ],
   },
   resolve: {

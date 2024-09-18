@@ -8,3 +8,4 @@
 - Part 2 編譯指令與設定選項
 - Part 3 搭配 Webpack 打包 TypeScript
 - Part 4 物件導向程式設計 OOP
+- Part 5 成果驗收－貪吃蛇

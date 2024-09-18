@@ -1,0 +1,47 @@
+$background: #000;
+$border: #E2E2E2;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100svh;
+  background-color: $background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tittle {
+  width: 380px;
+  & img {
+    width: 100%;
+  }
+}
+
+#container {
+  width: 360px;
+  height: 420px;
+  background-color: $background;
+  border: 10px solid $border;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#playground {
+  width: 304px;
+  height: 304px;
+  background-color: $background;
+  border: 2px solid $border;
+  border-radius: 5px;
+}
+
+#info {
+}

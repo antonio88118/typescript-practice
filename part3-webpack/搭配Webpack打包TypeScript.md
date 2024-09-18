@@ -16,6 +16,7 @@ pnpm add -D @babel/core @babel/cli @babel/preset-env babel-loader core-js
 - **core-js：** 模擬 js 執行的環境，可以讓較新的 js 程式在較舊的環境運作
 
 ### 視需求
+教學影片中使用，非必須，也可以自己建一個 html 引入打包後的 js，再用 live server 開啟。 
 ```
 pnpm add -D html-webpack-plugin
 ```
@@ -38,7 +39,7 @@ pnpm add -D html-webpack-plugin
 - **module** - webpack編譯、打包的對象模組相關設定
   - **rules** - 設定加載（loader）相關的規則，使用陣列包裝多個規則
     - **test** - 指定規則生效的檔案，使用正規表達式設定
-    - **use** - 載入檔案使用的 loader，**會根據陣列元素執行**
+    - **use** - 載入檔案使用的 loader，**會根據陣列元素順序由下而上執行**
     - **exclude** - 編譯時要排除的檔案，一般設定 node_modules（已經沒有必要編譯）
 - **plugins** - 載入插件
 - **resolve** - webpack 預設只有 js 可以當成模組，可以在此設定其他能當作模組引入程式的檔案格式
