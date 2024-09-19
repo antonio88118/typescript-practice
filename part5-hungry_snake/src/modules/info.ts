@@ -26,7 +26,7 @@ class Info {
   // 加分
   addScore() {
     this._scoreElm.innerText = `${++this._score}`;
-    // 設定分數對應升級的級距
+    // 設定分數對應升級的級距 => x分 / 1級
     if (this._score % this._scorePerLevel === 0) {
       this.levelUp();
     }

@@ -20,17 +20,39 @@ class Snake {
   get y() {
     return this.head.offsetTop;
   }
+
   // 設定蛇頭座標
   set x(value: number) {
+    // 蛇每次只會在 X 或 Y 軸改變方向（簡單來說，不會走斜線），方向沒變化的時候不用改值
+    if (this.x === value) {
+      return;
+    }
+    // 可移動的範圍在 0 ~ 290px 之間
+    if (value < 0 || value > 290) {
+      // 因為蛇的存活屬性 isAlive 在 gameControl，用拋出錯誤的方式傳遞死亡訊息給 gameControl
+      throw new Error("遊戲結束");
+    }
     this.head.style.left = `${value}px`;
   }
   set y(value: number) {
+    if (this.y === value) {
+      return;
+    }
+    if (value < 0 || value > 290) {
+      throw new Error("遊戲結束");
+    }
     this.head.style.top = `${value}px`;
   }
+
   // 增加一節身體
   addBody() {
-    this.snakeElm.innerHTML += `<div></div>`;
+    // innerHTML 會重新解析原有元素 & 重新渲染，影響之前抓取的 DOM 物件
+    // 實驗會發現，蛇吃到食物增加一節後會停下來
+    // this.snakeElm.innerHTML += `<div></div>`;
+    this.snakeElm.insertAdjacentHTML("beforeend", "<div></div>");
   }
+
+  moveBody() {}
 }
 
 export default Snake;
