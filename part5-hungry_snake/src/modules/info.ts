@@ -1,36 +1,40 @@
+// 資訊面板
 class Info {
   // --------------------------------- 屬性 ---------------------------------
   // 得分 & 等級
-  private score: number;
-  private level: number;
+  private _score: number;
+  private _level: number;
   // 等級上限 & 升級條件設定
-  private maxLevel: number;
-  private scorePerLevel: number;
+  private _maxLevel: number;
+  private _scorePerLevel: number;
   // 得分 & 等級對應的 DOM 元素
-  private scoreElm: HTMLElement;
-  private levelElm: HTMLElement;
+  private _scoreElm: HTMLElement;
+  private _levelElm: HTMLElement;
   // 沒傳參數的話，預設等級上限 10
-  constructor(maxLevel: number = 10, scorePerLevel: number = 10) {
-    this.score = 0;
-    this.level = 1;
-    this.maxLevel = maxLevel;
-    this.scorePerLevel = scorePerLevel;
-    this.scoreElm = document.querySelector("#score > span")!;
-    this.levelElm = document.querySelector("#level > span")!;
+  constructor(_maxLevel: number = 10, _scorePerLevel: number = 10) {
+    this._score = 0;
+    this._level = 1;
+    this._maxLevel = _maxLevel;
+    this._scorePerLevel = _scorePerLevel;
+    this._scoreElm = document.querySelector("#score > span")!;
+    this._levelElm = document.querySelector("#level > span")!;
   }
   // --------------------------------- 方法 ---------------------------------
+  get level() {
+    return this._level;
+  }
   // 加分
   addScore() {
-    this.scoreElm.innerText = `${++this.score}`;
+    this._scoreElm.innerText = `${++this._score}`;
     // 設定分數對應升級的級距
-    if (this.score % this.scorePerLevel === 0) {
+    if (this._score % this._scorePerLevel === 0) {
       this.levelUp();
     }
   }
   // 提升等級
   levelUp() {
-    if (this.level < this.maxLevel) {
-      this.levelElm.innerText = `${++this.level}`;
+    if (this._level < this._maxLevel) {
+      this._levelElm.innerText = `${++this._level}`;
     }
   }
 }
