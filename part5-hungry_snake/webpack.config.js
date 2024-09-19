@@ -10,8 +10,12 @@ export default {
   watch: true,
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "dist"), // ../part3-webpack/dist
+    path: path.resolve(__dirname, "dist"), // ../part5-hungry_snake/dist
     filename: "bundle.js",
+    environment: { // 針對特定語法的兼容性調整，現在沒有 IE 了，不知道必要性如何
+      arrowFunction: false, // 不使用箭頭函式
+      const: false, // 不使用 const
+    },
   },
   module: {
     rules: [
