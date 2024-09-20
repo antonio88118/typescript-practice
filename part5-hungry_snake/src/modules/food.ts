@@ -18,11 +18,15 @@ class Food {
   get y() {
     return this._element.offsetTop;
   }
+
   // 2. 變換位置
   // 碰到食物之後，食物要改變位置
   // 遊戲區域 300x300(px)，食物 10x10(px)，300 / 10 => 共 30x30 格
   // 食物和蛇與允許的座標值都是在 290px 之間（300px 要減去長寬 10px）
-  change() {
+  change(snakeX: number = 0, snakeY: number = 0) {
+    // let foodNewX = Math.floor(Math.random() * 30) * 10;
+    // let foodNewY = Math.floor(Math.random() * 30) * 10;
+    // if(foodNewX !== snakeX && foodNewY !== snakeY)
     this._element.style.left = `${Math.floor(Math.random() * 30) * 10}px`;
     this._element.style.top = `${Math.floor(Math.random() * 30) * 10}px`;
   }
