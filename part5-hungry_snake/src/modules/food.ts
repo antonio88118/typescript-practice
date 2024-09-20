@@ -5,6 +5,7 @@ class Food {
     // 不確定要抓取的 DOM 元素是否存在，會拋出錯誤提示
     // 在尾巴加上 !，表示我們確定該元素一定存在
     this._element = document.querySelector("#food")!;
+    this._element.style.opacity = "1";
     // 初始化隨機位置
     this.change();
   }
@@ -21,14 +22,11 @@ class Food {
 
   // 2. 變換位置
   // 碰到食物之後，食物要改變位置
-  // 遊戲區域 300x300(px)，食物 10x10(px)，300 / 10 => 共 30x30 格
-  // 食物和蛇與允許的座標值都是在 290px 之間（300px 要減去長寬 10px）
+  // 遊戲區域 300x300(px)，食物 20x20(px)，300 / 20 => 共 15x15 格
+  // 食物和蛇與允許的座標值都是在 280px 之間（300px 要減去長寬 20px）
   change(snakeX: number = 0, snakeY: number = 0) {
-    // let foodNewX = Math.floor(Math.random() * 30) * 10;
-    // let foodNewY = Math.floor(Math.random() * 30) * 10;
-    // if(foodNewX !== snakeX && foodNewY !== snakeY)
-    this._element.style.left = `${Math.floor(Math.random() * 30) * 10}px`;
-    this._element.style.top = `${Math.floor(Math.random() * 30) * 10}px`;
+    this._element.style.left = `${Math.floor(Math.random() * 15) * 20}px`;
+    this._element.style.top = `${Math.floor(Math.random() * 15) * 20}px`;
   }
 }
 

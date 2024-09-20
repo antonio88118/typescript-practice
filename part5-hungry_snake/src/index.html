@@ -6,28 +6,30 @@
     <title>貪吃蛇</title>
   </head>
   <body>
-    <div id="tittle">
-      <img src="../src/tittle.jpg" alt="" />
-    </div>
-    <div id="container">
-      <div id="playground">
-        <span id="game-over-text">GAME OVER</span>
-        <div id="snake">
-          <div></div>
+    <div id="wrapper">
+      <div id="tittle">
+        <img src="../src/tittle.jpg" alt="" />
+      </div>
+      <div id="container">
+        <div id="playground">
+          <span id="cover-text">Play with WASD</span>
+          <div id="snake">
+            <div></div>
+          </div>
+          <div id="food">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
-        <div id="food">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div id="info">
+          <div id="score">SCORE:<span>0</span></div>
+          <div id="level">LEVEL:<span>1</span></div>
         </div>
       </div>
-      <div id="info">
-        <div id="score">SCORE:<span>0</span></div>
-        <div id="level">LEVEL:<span>1</span></div>
-      </div>
+      <div id="message"><span>Press enter to start</span></div>
     </div>
-    <div id="message"><span>Press enter to start</span></div>
     <script src="../dist/bundle.js"></script>
   </body>
 </html>

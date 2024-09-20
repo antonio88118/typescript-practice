@@ -27,8 +27,8 @@ class Snake {
     if (this.x === value) {
       return;
     }
-    // 判斷2. 撞牆，可移動的範圍在 0 ~ 290px 之間
-    if (value < 0 || value > 290) {
+    // 判斷2. 撞牆，可移動的範圍在 0 ~ 280px 之間
+    if (value < 0 || value > 280) {
       // 2. 因為蛇的存活屬性 isAlive 在 gameControl，用拋出錯誤的方式傳遞死亡訊息給 gameControl
       throw new Error("Refresh to try again.");
     }
@@ -37,10 +37,10 @@ class Snake {
       // 當蛇想掉頭，讓它往反方向（原本移動的方向）繼續移動
       if (this.x > value) {
         // 向左掉頭 => 繼續向右
-        value = this.x + 10;
+        value = this.x + 20;
       } else {
         // 向右掉頭 => 繼續向左
-        value = this.x - 10;
+        value = this.x - 20;
       }
     }
 
@@ -53,15 +53,15 @@ class Snake {
     if (this.y === value) {
       return;
     }
-    if (value < 0 || value > 290) {
+    if (value < 0 || value > 280) {
       throw new Error("Refresh to try again.");
     }
 
     if (this.body[1] && (this.body[1] as HTMLElement).offsetTop === value) {
       if (this.y > value) {
-        value = this.y + 10;
+        value = this.y + 20;
       } else {
-        value = this.y - 10;
+        value = this.y - 20;
       }
     }
 

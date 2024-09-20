@@ -9,21 +9,22 @@ class GameControl {
   snake: Snake;
   food: Food;
   info: Info;
-  direction: string = "ArrowDown"; // 蛇移動的方向
+  direction: string = "KeyS"; // 蛇移動的方向
   isAlive: boolean = true; // 蛇的存活狀態 => 遊戲是否結束
   // 遊戲結束訊息
-  private _gameOverElm: HTMLElement;
+  private _coverTextElm: HTMLElement;
   constructor() {
     this.snake = new Snake();
     this.food = new Food();
     this.info = new Info(10, 3);
-    this._gameOverElm = document.querySelector("#game-over-text")!;
+    this._coverTextElm = document.querySelector("#cover-text")!;
     this.init(); // new GameControl 的同時，進行初始化
   }
   // --------------------------------- 方法 ---------------------------------
   // 1. 功能初始化
   init() {
     this.info.message = "";
+    this._coverTextElm.textContent = "";
     // 綁定鍵盤事件 => 整理一、為什麼要用 bind()？
     document.addEventListener("keydown", this.keydownHandler.bind(this));
     this.move();
@@ -33,10 +34,10 @@ class GameControl {
   keydownHandler(event: KeyboardEvent) {
     // code 屬性不受語言影響，對應物理上的按鍵，名稱都是固定的
     switch (event.code) {
-      case "ArrowUp":
-      case "ArrowDown":
-      case "ArrowLeft":
-      case "ArrowRight":
+      case "KeyW":
+      case "KeyS":
+      case "KeyA":
+      case "KeyD":
         this.direction = event.code;
         break;
     }
@@ -50,17 +51,17 @@ class GameControl {
     let y = this.snake.y;
     // 2. 根據按鍵判斷方向，移動一格
     switch (this.direction) {
-      case "ArrowUp":
-        y -= 10;
+      case "KeyW":
+        y -= 20;
         break;
-      case "ArrowDown":
-        y += 10;
+      case "KeyS":
+        y += 20;
         break;
-      case "ArrowLeft":
-        x -= 10;
+      case "KeyA":
+        x -= 20;
         break;
-      case "ArrowRight":
-        x += 10;
+      case "KeyD":
+        x += 20;
         break;
     }
 
@@ -74,26 +75,19 @@ class GameControl {
     } catch (error: any) {
       this.info.message = error.message;
       this.isAlive = false;
-      this._gameOverElm.style.opacity = "1";
+      this._coverTextElm.textContent = "GAME OVER";
     }
 
     // 5. 進入遞迴，每隔一段時間調用自己一次，秒數越短動越快 => 整理三、等級難度設定
     this.isAlive &&
-      setTimeout(this.move.bind(this), 350 - (this.info.level - 1) * 30);
+      setTimeout(this.move.bind(this), 500 - (this.info.level - 1) * 30);
   }
 
   // 4. 檢查是否吃到食物 => 兩者座標是否重疊
   // 涉及各類別的功能，所以不分開寫
   checkEat(thisTimeX: number, thisTimeY: number) {
     if (thisTimeX === this.food.x && thisTimeY === this.food.y) {
-      // 若食物在蛇的位置生成，重新生成直到不重疊
-      let i = 0;
-      let bd = this.snake.body[i] as HTMLElement;
-      do {
-        this.food.change();
-        i++;
-      } while (this.food.x === bd.offsetLeft && this.food.y === bd.offsetTop);
-
+      this.food.change();
       this.info.addScore();
       this.snake.addBody();
     }
