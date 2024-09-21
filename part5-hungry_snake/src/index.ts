@@ -1,12 +1,17 @@
 import "./style/index.scss";
 import GameContorl from "./modules/gameControl";
 
-let gc = null;
+let gc: GameContorl;
 document.addEventListener("keydown", startGame);
 
 function startGame(event: KeyboardEvent): void {
   if (event.code === "Enter") {
-    gc = new GameContorl();
-    document.removeEventListener("keydown", startGame)
+    if (!gc) {
+      gc = new GameContorl();
+    } else {
+      if (!gc.isAlive) {
+        location.reload();
+      }
+    }
   }
 }

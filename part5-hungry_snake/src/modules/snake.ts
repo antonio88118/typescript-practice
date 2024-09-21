@@ -30,7 +30,7 @@ class Snake {
     // 判斷2. 撞牆，可移動的範圍在 0 ~ 280px 之間
     if (value < 0 || value > 280) {
       // 2. 因為蛇的存活屬性 isAlive 在 gameControl，用拋出錯誤的方式傳遞死亡訊息給 gameControl
-      throw new Error("Refresh to try again.");
+      throw new Error("Press enter to try again");
     }
     // 判斷3. 掉頭 => 頭是否想移到第二節（body[1）的位置
     if (this.body[1] && (this.body[1] as HTMLElement).offsetLeft === value) {
@@ -54,7 +54,7 @@ class Snake {
       return;
     }
     if (value < 0 || value > 280) {
-      throw new Error("Refresh to try again.");
+      throw new Error("Press enter to try again");
     }
 
     if (this.body[1] && (this.body[1] as HTMLElement).offsetTop === value) {
@@ -100,7 +100,7 @@ class Snake {
       let bd = this.body[i] as HTMLElement;
       // 若頭的位置跟身體任一節的位置一樣，表示碰撞
       if (this.x === bd.offsetLeft && this.y === bd.offsetTop) {
-        throw new Error("Refresh to try again.");
+        throw new Error("Press enter to try again");
       }
     }
   }

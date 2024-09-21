@@ -80,7 +80,7 @@ class GameControl {
 
     // 5. 進入遞迴，每隔一段時間調用自己一次，秒數越短動越快 => 整理三、等級難度設定
     this.isAlive &&
-      setTimeout(this.move.bind(this), 500 - (this.info.level - 1) * 30);
+      setTimeout(this.move.bind(this), 450 - (this.info.level - 1) * 30);
   }
 
   // 4. 檢查是否吃到食物 => 兩者座標是否重疊
